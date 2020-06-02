@@ -32,7 +32,7 @@ public class DodgemTest {
     }
 
     @Test
-    public void hasDefaulPrice() {
+    public void hasDefaultPrice() {
         assertEquals(4.50, dodgems.defaultPrice(), 0.01);
     }
 
@@ -46,5 +46,11 @@ public class DodgemTest {
     public void chargesHalfPriceFor11YearOld() {
         Visitor youngVisitor = new Visitor(11, 120, 100.00);
         assertEquals(2.25, dodgems.priceFor(youngVisitor), 0.01);
+    }
+
+    @Test
+    public void canIncrementCount() {
+        dodgems.incrementVisitCount(1);
+        assertEquals(1, dodgems.getVisitCount());
     }
 }

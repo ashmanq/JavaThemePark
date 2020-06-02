@@ -1,8 +1,11 @@
 import attractions.Attraction;
 import attractions.DodgemTest;
 import attractions.Dodgems;
+import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.Attr;
+import people.Visitor;
 import stalls.CandyflossStall;
 import stalls.ParkingSpot;
 import stalls.Stall;
@@ -56,5 +59,14 @@ public class ThemeParkTest {
         CandyflossStall candyflossStall = new CandyflossStall("Candy R Us", "Jim Jones", ParkingSpot.A1, 8);
         themepark.addReviewedPlace(candyflossStall);
         assertEquals(2, themepark.getNoReviewedPlaces());
+    }
+
+    @Test
+    public void visitorCanVisitAttraction() {
+        Visitor visitor = new Visitor(18, 190, 200);
+        Attraction rollerCoaster = new RollerCoaster("Big Bertha", 10);
+        themepark.visit(visitor, rollerCoaster);
+        assertEquals(1, rollerCoaster.getVisitCount());
+        assertEquals(1, visitor.getVisitedAttractions().size());
     }
 }

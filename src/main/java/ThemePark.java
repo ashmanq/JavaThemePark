@@ -1,5 +1,6 @@
 import attractions.Attraction;
 import behaviours.IReviewed;
+import people.Visitor;
 import stalls.Stall;
 
 import javax.smartcardio.ATR;
@@ -36,4 +37,10 @@ public class ThemePark {
     public ArrayList<IReviewed> getAllReviewed() {
         return this.reviewedPlaces;
     }
+
+    public void visit(Visitor visitor, Attraction attraction) {
+        visitor.addVisitedAttraction(attraction);
+        attraction.incrementVisitCount(1);
+    }
+
 }

@@ -10,13 +10,13 @@ public class Visitor {
     private int age;
     private double height;
     private double money;
-    private ArrayList<Attraction> attractions;
+    private ArrayList<Attraction> visitedAttractions;
 
     public Visitor(int age, double height, double money) {
         this.age = age;
         this.height = height;
         this.money = money;
-        this.attractions = new ArrayList<>();
+        this.visitedAttractions = new ArrayList<>();
     }
 
     public int getAge() {
@@ -31,11 +31,11 @@ public class Visitor {
         return money;
     }
 
-    public void addAttraction(Attraction attraction) {
-        this.attractions.add(attraction);
+    public void addVisitedAttraction(Attraction attraction) {
+        this.visitedAttractions.add(attraction);
     }
 
-    public ArrayList<Attraction> getAttractions() {
-        return this.attractions;
+    public ArrayList<Attraction> getVisitedAttractions() {
+        return this.visitedAttractions;
     }
 }
